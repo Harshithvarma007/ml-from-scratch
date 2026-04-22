@@ -1,4 +1,5 @@
 import Hero from '@/components/home/Hero'
+import WidgetShowcase from '@/components/home/WidgetShowcase'
 import SectionCard from '@/components/home/SectionCard'
 import Prompt from '@/components/ui/Prompt'
 import { roadmap, totalLessons } from '@/lib/roadmap'
@@ -7,6 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-dark-bg">
       <Hero />
+      <WidgetShowcase />
 
       {/* Curriculum */}
       <section id="curriculum" className="max-w-5xl mx-auto px-6 lg:px-8 py-16">
@@ -41,7 +43,7 @@ export default function Home() {
             <span>v1 · 2026</span>
           </div>
           <div className="flex items-center gap-4">
-            <span>learn · derive · ship</span>
+            <span>derive · implement · understand</span>
           </div>
         </div>
       </footer>
