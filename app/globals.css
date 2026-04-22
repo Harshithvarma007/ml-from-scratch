@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts — JetBrains Mono is the primary typeface */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+/* KaTeX math rendering. Only lessons that use <InlineTex> / <BlockTex>
+   trigger a mount of the HTML they produce, but the stylesheet itself
+   must be present globally so the spacing/glyph mapping works. */
+@import 'katex/dist/katex.min.css';
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-dark-text-primary antialiased;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .font-sans {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Menlo', 'Consolas', monospace;
+  }
+}
+
+@layer utilities {
+  /* Terminal panel — a bordered inset block */
+  .term-panel {
+    @apply border border-dark-border bg-dark-surface;
+  }
+
+  .term-panel-elevated {
+    @apply border border-dark-border bg-dark-surface-elevated;
+  }
+
+  /* Panel header recipe */
+  .term-panel-header {
+    @apply flex items-center justify-between px-3 py-1.5 border-b border-dark-border bg-dark-surface-elevated/60;
+    @apply text-[11px] uppercase tracking-wider text-dark-text-secondary font-mono;
+  }
+
+  /* Terminal line — a single output line */
+  .term-line {
+    @apply font-mono text-sm leading-relaxed;
+  }
+
+  /* Sidebar panel */
+  .sidebar-panel {
+    @apply bg-dark-sidebar border-r border-dark-border;
+  }
+
+  /* Input field styling */
+  .dark-input {
+    @apply bg-dark-input border border-dark-border text-dark-text-primary placeholder-dark-text-muted;
+    @apply focus:border-dark-accent focus:ring-1 focus:ring-dark-accent/20;
+  }
+
+  /* Button primary */
+  .btn-primary {
+    @apply bg-dark-accent hover:bg-dark-accent-hover text-white;
+    @apply shadow-sm hover:shadow-md transition-all;
+  }
+
+  /* Button secondary */
+  .btn-secondary {
+    @apply bg-dark-surface-elevated hover:bg-dark-surface-hover border border-dark-border;
+    @apply text-dark-text-secondary hover:text-dark-text-primary transition-colors;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply text-dark-text-secondary hover:text-dark-text-primary hover:bg-white/[0.03];
+    @apply transition-colors;
+  }
+
+  /* Terminal prompt prefix */
+  .term-prompt {
+    color: #a78bfa;
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  /* Dim separator line */
+  .term-sep {
+    @apply border-t border-dark-border/50 my-3;
+  }
+
+  /* Subtle radial glow background — used behind hero */
+  .hero-glow {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(167, 139, 250, 0.08), transparent 70%);
+  }
+
+  /* Grid background — very faint, for hero */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(167, 139, 250, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(167, 139, 250, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
+
+/* Custom scrollbar — ultra-minimal */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-scrollbar rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dark-scrollbar-hover;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(167, 139, 250, 0.25);
+  color: #f8f8f8;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 1px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+/* Fade-in for log lines */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.2s ease-out forwards; }
+
+/* Shimmer skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+/* Terminal cursor blink */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.term-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: #a78bfa;
+  animation: cursorBlink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+/* Sidebar slide-over */
+.sidebar-drawer {
+  transition: transform 0.2s ease-out;
+}
+.sidebar-drawer.open  { transform: translateX(0); }
+.sidebar-drawer.closed { transform: translateX(-100%); }
+
+/* Smooth anchor scrolling for TOC */
+html {
+  scroll-behavior: smooth;
+}

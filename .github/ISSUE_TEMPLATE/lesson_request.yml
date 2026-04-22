@@ -1,0 +1,69 @@
+name: Lesson request
+description: A topic that should be in the curriculum but isn't.
+title: "[lesson] "
+labels: ["lesson request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: check the [roadmap](https://github.com/YOUR_USERNAME/ml-from-scratch#curriculum)
+        to make sure the lesson doesn't already exist or isn't in progress.
+
+  - type: input
+    id: title
+    attributes:
+      label: Proposed lesson title
+      placeholder: e.g. "Rotary Position Embeddings (RoPE)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which section does it belong in?
+      options:
+        - Math Foundations
+        - Build a Neural Net
+        - PyTorch
+        - Training
+        - CNNs & Vision
+        - RNN & LSTM
+        - NLP
+        - Attention & Transformers
+        - Build GPT
+        - Fine-Tuning & RLHF
+        - Mixture of Experts
+        - Diffusion Models
+        - Reinforcement Learning
+        - Inference & Serving
+        - New section (explain below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this belong here?
+      description: What gap does it fill? What's the one-sentence blurb a learner would read to decide if they need it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: derivation
+    attributes:
+      label: Key derivation or insight
+      description: What's the math or algorithm the lesson should derive? Don't write the lesson here — just sketch the core idea.
+
+  - type: textarea
+    id: widget
+    attributes:
+      label: Widget idea (optional)
+      description: What interactive element would make this lesson click? e.g. "a slider showing how rope frequencies change with position"
+
+  - type: checkboxes
+    id: willing
+    attributes:
+      label: Would you like to write this lesson?
+      options:
+        - label: Yes, I'd like to take a stab at it (see CONTRIBUTING.md)
+        - label: No, just requesting it

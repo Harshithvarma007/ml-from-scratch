@@ -1,0 +1,42 @@
+name: Widget improvement
+description: A widget that could be more interactive, more readable, or more correct.
+title: "[widget] "
+labels: ["widget"]
+body:
+  - type: input
+    id: widget
+    attributes:
+      label: Which widget?
+      description: Lesson URL + widget name or description
+      placeholder: e.g. /learn/attention-and-transformers — attention heatmap widget
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What's the current behaviour?
+      description: Screenshot or description of what it does now.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed
+    attributes:
+      label: What should it do instead?
+      description: Be concrete. "Add a slider for temperature" is good. "Make it better" is not.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type of improvement
+      options:
+        - Interactivity / new control
+        - Mobile / responsive layout
+        - Accessibility (focus, aria, contrast)
+        - Animation or visual polish
+        - Performance
+        - Correctness / wrong output
+        - Other
