@@ -34,6 +34,8 @@ Every lesson starts with the math, shows you the NumPy implementation, then hand
 
 → **[ml.harshithvarma.in](https://ml.harshithvarma.in)**
 
+![ML from Scratch — Launch Video](docs/launch.gif)
+
 ---
 
 ## Curriculum
