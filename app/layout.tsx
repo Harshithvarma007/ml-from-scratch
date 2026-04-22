@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import CommandPalette from '@/components/search/CommandPalette'
 import CommandPaletteHint from '@/components/search/CommandPaletteHint'
 import './globals.css'
@@ -65,6 +66,7 @@ export default function RootLayout({
         {children}
         <CommandPalette />
         <CommandPaletteHint />
+        <Analytics />
       </body>
     </html>
   )
