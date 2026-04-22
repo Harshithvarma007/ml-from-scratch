@@ -34,8 +34,7 @@ Every lesson starts with the math, shows you the NumPy implementation, then hand
 
 ## Live Demo
 
-→ https://ml.harshithvarma.in
-*Coming soon — deploy instructions below.*
+→ **[ml.harshithvarma.in](https://ml.harshithvarma.in)**
 
 ---
 
